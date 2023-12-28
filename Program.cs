@@ -1,4 +1,6 @@
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using PokemonReviewApp;
 using PokemonReviewApp.Data;
 
@@ -15,6 +17,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+
 
 var app = builder.Build();
 
@@ -36,6 +40,9 @@ void SeedData(IHost app)
 
 
 // Configure the HTTP request pipeline.
+
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
